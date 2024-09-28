@@ -66,14 +66,14 @@ public final class MecanumDrive {
         /* Configured with instructions from
          *  https://rr.brott.dev/docs/v1-0/tuning/
          */
-        public double inPerTick = 0.002925942;
+        public double inPerTick = 0.00318725;
         public double lateralInPerTick = 0.002097982788242009;
-        public double trackWidthTicks = 4687.403695388044;
+        public double trackWidthTicks = 255.99902003312604;
 
         // feedforward parameters (in tick units)
-        public double kS = 0.8048110237878299;
-        public double kV = 0.000603265235173417;
-        public double kA = 0.00008;
+        public double kS = 0.6318601813799885;
+        public double kV = 0.00038220738008624554;
+        public double kA = 0.00001;
 
         // path profile parameters (in inches)
         public double maxWheelVel = 50;
@@ -233,7 +233,10 @@ public final class MecanumDrive {
         // TODO: reverse motor directions if needed
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        // CHANGE : Reverse RIGHTBACK motor
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
 
         // TODO: make sure your config has an IMU with this name (can be BNO or BHI)
