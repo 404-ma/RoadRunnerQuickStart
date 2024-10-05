@@ -1,3 +1,9 @@
+/*
+frontLeft - Left side forward odometry
+frontRight - Perpendicular Odometry
+backRight - Right side forward odometry
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import androidx.annotation.NonNull;
@@ -66,14 +72,14 @@ public final class MecanumDrive {
         /* Configured with instructions from
          *  https://rr.brott.dev/docs/v1-0/tuning/
          */
-        public double inPerTick = 0.00318725;
+        public double inPerTick = 0.00218725;
         public double lateralInPerTick = 0.002097982788242009;
-        public double trackWidthTicks = 255.99902003312604;
+        public double trackWidthTicks = 6912.7243860594335;
 
         // feedforward parameters (in tick units)
-        public double kS = 0.6318601813799885;
-        public double kV = 0.00038220738008624554;
-        public double kA = 0.00001;
+        public double kS = 0.7006158259199919;
+        public double kV = 0.00037840675824594256;
+        public double kA = 0.000085;
 
         // path profile parameters (in inches)
         public double maxWheelVel = 50;
