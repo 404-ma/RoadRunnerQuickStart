@@ -72,14 +72,14 @@ public final class MecanumDrive {
         /* Configured with instructions from
          *  https://rr.brott.dev/docs/v1-0/tuning/
          */
-        public double inPerTick = 0.00293753354527063292184468023616;
+        public double inPerTick = 0.0029517572180;
         public double lateralInPerTick = 0.0016546343590627057;
-        public double trackWidthTicks = 6657.607308597517;
+        public double trackWidthTicks = 3904.517928280446;
 
         // feedforward parameters (in tick units)
-        public double kS = 0.8596057353751845;
-        public double kV = 0.0003826028152255662;
-        public double kA = 0.000025;
+        public double kS = 0.8051340064834394;
+        public double kV = 0.000402865049935694;
+        public double kA = 0.000045;
 
         // path profile parameters (in inches)
         public double maxWheelVel = 50;
@@ -92,8 +92,8 @@ public final class MecanumDrive {
 
         // path controller gains
         public double axialGain = 3.0;
-        public double lateralGain = 6.0;
-        public double headingGain = 9.0; // shared with turn
+        public double lateralGain = 1.1;
+        public double headingGain = 5.5; // shared with turn
 
         public double axialVelGain = 0.0;
         public double lateralVelGain = 0.0;
@@ -237,13 +237,10 @@ public final class MecanumDrive {
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // TODO: reverse motor directions if needed
-        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-
-        // CHANGE : Reverse RIGHTBACK motor
-        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
-
+        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
         // TODO: make sure your config has an IMU with this name (can be BNO or BHI)
         //   see https://ftc-docs.firstinspires.org/en/latest/hardware_and_software_configuration/configuring/index.html
