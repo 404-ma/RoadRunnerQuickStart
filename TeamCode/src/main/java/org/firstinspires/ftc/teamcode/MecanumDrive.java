@@ -98,6 +98,11 @@ public final class MecanumDrive {
         public double axialVelGain = 0.0;
         public double lateralVelGain = 0.0;
         public double headingVelGain = 0.0; // shared with turn
+
+        public boolean leftBackReverse = true;
+        public boolean leftFrontReverse = false;
+        public boolean rightBackReverse = true;
+        public boolean rightFrontReverse = true;
     }
 
     public static Params PARAMS = new Params();
@@ -236,11 +241,11 @@ public final class MecanumDrive {
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        // TODO: reverse motor directions if needed
-        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
-
+        // reverse motor directions as needed
+        if (PARAMS.leftBackReverse) leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (PARAMS.leftFrontReverse) leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (PARAMS.rightBackReverse) rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (PARAMS.rightFrontReverse) rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
 
         // TODO: make sure your config has an IMU with this name (can be BNO or BHI)
         //   see https://ftc-docs.firstinspires.org/en/latest/hardware_and_software_configuration/configuring/index.html
