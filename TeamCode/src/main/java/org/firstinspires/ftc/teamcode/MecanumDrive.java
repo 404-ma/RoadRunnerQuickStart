@@ -1,9 +1,3 @@
-/*
-frontLeft - Left side forward odometry
-frontRight - Perpendicular Odometry
-backRight - Right side forward odometry
- */
-
 package org.firstinspires.ftc.teamcode;
 
 import androidx.annotation.NonNull;
